@@ -28,8 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
   int index = 0;
+  int score = 0;
 
   bool isPressed = false;
+
+  bool isAlreadySelected = false;
 
   void nextQuestion() {
     if (index == _question.length - 1) {
@@ -38,14 +41,23 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         index++;
         isPressed = false;
+        isAlreadySelected = false;
       });
     }
   }
 
-  void changeColor() {
-    setState(() {
-      isPressed = true;
-    });
+  void CheckAnswerAndUpdate(bool value) {
+    if (isAlreadySelected) {
+      return;
+    } else {
+      if (value = true) {
+        score++;
+        setState(() {
+          isPressed = true;
+          isAlreadySelected = true;
+        });
+      }
+    }
   }
 
   @override
@@ -54,7 +66,15 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
-        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Text(
+              'Score: $score',
+              style: const TextStyle(fontSize: 18.0),
+            ),
+          )
+        ],
       ),
       body: Container(
         width: double.infinity,
@@ -73,14 +93,17 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 25.0,
             ),
             for (int i = 0; i < _question[index].options.length; i++)
-              OptionCard(
-                option: _question[index].options.keys.toList()[i],
-                color: isPressed
-                    ? _question[index].options.values.toList()[i] == true
-                        ? correct
-                        : incorrect
-                    : neutral,
-                onTap: changeColor,
+              GestureDetector(
+                onTap: () => CheckAnswerAndUpdate(
+                    _question[index].options.values.toList()[i]),
+                child: OptionCard(
+                  option: _question[index].options.keys.toList()[i],
+                  color: isPressed
+                      ? _question[index].options.values.toList()[i] == true
+                          ? correct
+                          : incorrect
+                      : neutral,
+                ),
               ),
           ],
         ),
