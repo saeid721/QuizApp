@@ -4,6 +4,7 @@ import '../screens/constants.dart';
 import '../widgets/question_widgets.dart';
 import '../widgets/next_button.dart';
 import '../widgets/option_card.dart';
+import '../widgets/result_box.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
@@ -36,7 +37,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void nextQuestion() {
     if (index == _question.length - 1) {
-      return;
+      showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (ctx) => ResultBox(
+                result: score,
+                questionLength: _question.length,
+                onPressed: startOver,
+              ));
     } else {
       setState(() {
         index++;
@@ -52,12 +60,22 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       if (value = true) {
         score++;
-        setState(() {
-          isPressed = true;
-          isAlreadySelected = true;
-        });
       }
+      setState(() {
+        isPressed = true;
+        isAlreadySelected = true;
+      });
     }
+  }
+
+  void startOver() {
+    setState(() {
+      index = 0;
+      score = 0;
+      isPressed = false;
+      isAlreadySelected = false;
+    });
+    Navigator.pop(context);
   }
 
   @override
@@ -73,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
               'Score: $score',
               style: const TextStyle(fontSize: 18.0),
             ),
-          )
+          ),
         ],
       ),
       body: Container(
