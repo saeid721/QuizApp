@@ -17,7 +17,7 @@ class ResultBox extends StatelessWidget {
     return AlertDialog(
       backgroundColor: background,
       content: Padding(
-        padding: EdgeInsets.all(70.0),
+        padding: const EdgeInsets.all(70.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
