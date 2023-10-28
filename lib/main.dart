@@ -23,12 +23,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Build A Simple Quiz App',
+      title: 'Flutter Quiz App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amberAccent),
         useMaterial3: true,
       ),
-      home: const HomeScreen(title: 'Flutter Quiz App'),
+      home: const HomeScreen(title: 'Flutter Quiz'),
     );
   }
 }

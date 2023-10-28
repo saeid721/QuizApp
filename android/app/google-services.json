@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "936452666804",
+    "firebase_url": "https://flutterquizapp-2183c-default-rtdb.firebaseio.com",
+    "project_id": "flutterquizapp-2183c",
+    "storage_bucket": "flutterquizapp-2183c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936452666804:android:791b5272ae51d66a6deee1",
+        "android_client_info": {
+          "package_name": "com.example.quiz_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGYtNwRCKx91OZ4XkcG6qxCC4OQI_4tYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

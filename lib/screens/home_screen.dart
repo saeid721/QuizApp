@@ -167,8 +167,25 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const CircularProgressIndicator(),
+                const SizedBox(
+                  height: 20.0,
+                ),
+                Text(
+                  'Please wait while Questions are loading..',
+                  style: TextStyle(
+                    color: neutral,
+                    decoration: TextDecoration.none,
+                    fontSize: 16.0,
+                  ),
+                )
+              ],
+            ),
           );
         }
 
