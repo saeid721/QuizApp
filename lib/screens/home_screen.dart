@@ -167,13 +167,13 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
         } else {
-          return Center(
+          return const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const CircularProgressIndicator(),
-                const SizedBox(
+                CircularProgressIndicator(),
+                SizedBox(
                   height: 20.0,
                 ),
                 Text(
