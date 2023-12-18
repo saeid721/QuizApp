@@ -1,16 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/models/question_model.dart';
-import './screens/home_screen.dart';
-import './models/db_connect.dart';
 
-void main() {
+import './models/db_connect.dart';
+import './screens/home_screen.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   var db = DBconnect();
-  // db.addQuestion(Question(id: '20', title: 'What is 20 x 100?', options: {
-  //   '100': false,
-  //   '200': true,
-  //   '300': false,
-  //   '500': false,
-  // }));
   db.fetchQuestions();
   runApp(const MyApp());
 }

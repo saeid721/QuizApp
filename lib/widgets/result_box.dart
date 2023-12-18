@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/screens/constants.dart';
+
+import '../screens/constants.dart';
 
 class ResultBox extends StatelessWidget {
   const ResultBox({

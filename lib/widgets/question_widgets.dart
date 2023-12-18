@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/screens/constants.dart';
 
 class QuestionWidget extends StatelessWidget {
   const QuestionWidget(

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/models/question_model.dart';
+
+import '../models/db_connect.dart';
+import '../models/question_model.dart';
 import '../screens/constants.dart';
-import '../widgets/question_widgets.dart';
 import '../widgets/next_button.dart';
 import '../widgets/option_card.dart';
+import '../widgets/question_widgets.dart';
 import '../widgets/result_box.dart';
-import '../models/db_connect.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
@@ -18,18 +19,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var db = DBconnect();
-  // List<Question> _question = [
-  //   Question(
-  //     id: '10',
-  //     title: 'What is 2+2?',
-  //     options: {'5': false, '30': false, '4': true, '10': false},
-  //   ),
-  //   Question(
-  //     id: '11',
-  //     title: 'Wthat is 10+20?',
-  //     options: {'50': false, '30': true, '4': false, '10': false},
-  //   ),
-  // ];
   late Future _questions;
   Future<List<Question>> getData() async {
     return db.fetchQuestions();

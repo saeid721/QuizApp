@@ -1,6 +1,9 @@
-import 'package:http/http.dart' as http;
-import '../models/question_model.dart';
 import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:http/http.dart' as http;
+
+import '../models/question_model.dart';
 
 class DBconnect {
   final url = Uri.parse(
@@ -13,6 +16,7 @@ class DBconnect {
         }));
   }
 
+  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   Future<List<Question>> fetchQuestions() async {
     return http.get(url).then((response) {
       var data = json.decode(response.body) as Map<String, dynamic>;
